@@ -8,8 +8,44 @@ $ npm start
 ````
 
 
+To install the Netlify cli
+  sudo  npm install netlify-cli -g
+
+To initialise a netlify site
+  sudo  netlify init 
 
 
+result:
+            (base) admin@admins-Air 12.insurance-call-center-GPT3.5-netlify % sudo netlify init
+
+            Adding local .netlify folder to .gitignore file...
+            ? What would you like to do? ⇄  Connect this directory to an existing Netlify site
+
+            netlify link will connect this folder to a site on Netlify
+
+            ? How do you want to link this folder to a site? Use current git remote origin (https://github.com/PengZhao-GitHub/openai-chatbo
+            t-insurance-call-center)
+
+            Looking for sites connected to 'https://github.com/PengZhao-GitHub/openai-chatbot-insurance-call-center'...
+
+
+            Directory Linked
+
+            Admin url: https://app.netlify.com/sites/cosmic-klepon-bad845
+            Site url:  https://cosmic-klepon-bad845.netlify.app
+
+            You can now run other `netlify` cli commands in this directory
+
+
+            Success
+            This site "cosmic-klepon-bad845" is configured to automatically deploy via https://github.com/PengZhao-GitHub/openai-chatbot-insurance-call-center
+
+
+To setup a serverless function
+    netlify functions:create
+
+The url of your serverless function
+    https://<YOUR-SITE-URL>.netlify.app/.netlify/functions/fetchAI
 
 
 
