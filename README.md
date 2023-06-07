@@ -47,6 +47,7 @@ To setup a serverless function
 The url of your serverless function
     https://<YOUR-SITE-URL>.netlify.app/.netlify/functions/fetchAI
 
+NOTE: Don't forget to push the change to GitHub
 
 
 

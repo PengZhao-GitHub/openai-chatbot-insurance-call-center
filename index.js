@@ -40,21 +40,31 @@ document.addEventListener('submit', (e) => {
 
 async function fetchReply() {
 
-    const response = await openai.createChatCompletion({
-        model: 'gpt-3.5-turbo',
-        messages: conversationArr,
-        presence_penalty: 0, 
-        frequency_penalty: 0.3,
-        temperature: 0
+    // const response = await openai.createChatCompletion({
+    //     model: 'gpt-3.5-turbo',
+    //     messages: conversationArr,
+    //     presence_penalty: 0, 
+    //     frequency_penalty: 0.3,
+    //     temperature: 0
+    // })
+
+    const url = 'https://cosmic-klepon-bad845.netlify.app/.netlify/functions/fetchAI'
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'content-type': 'text/plain',
+        },
+        body: conversationStr
     })
+    const data = await response.json()
 
     // console.log(response)
 
     // Add the AI response to DOM
-    renderTypewriterText(response.data.choices[0].message.content)
+    //renderTypewriterText(response.data.choices[0].message.content)
 
     // Add the AI response to converation array
-    conversationArr.push(response.data.choices[0].message)  
+    //conversationArr.push(response.data.choices[0].message)  
 
 }
 
