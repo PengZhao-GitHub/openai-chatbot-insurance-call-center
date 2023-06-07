@@ -54,7 +54,7 @@ async function fetchReply() {
         headers: {
             'content-type': 'text/plain',
         },
-        body: conversationStr
+        body: conversationArr
     })
     const data = await response.json()
 
