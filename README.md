@@ -8,6 +8,15 @@ $ npm start
 ````
 
 
+
+
+
+
+
+
+
+gpt-3.5 is better than fine-tuning in this case
+------------------------------------------------
 There could be several reasons why the quality of your fine-tuned model for the insurance call center is lower compared to using the GPT-3.5-turbo API directly. Here are a few possible explanations:
 
 1. Training data: The quality of your fine-tuned model heavily relies on the quality and relevance of the training data you provided. If the training data is not representative of the specific domain and use case of insurance call centers, the model may not perform optimally. It's crucial to ensure that the training data is diverse, specific, and covers a range of scenarios and customer queries typically encountered in insurance call centers.
