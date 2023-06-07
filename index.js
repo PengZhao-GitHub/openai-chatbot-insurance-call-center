@@ -58,7 +58,7 @@ async function fetchReply() {
     })
     const data = await response.json()
 
-    // console.log(response)
+    console.log(data)
 
     // Add the AI response to DOM
     //renderTypewriterText(response.data.choices[0].message.content)
