@@ -38,6 +38,8 @@ async function fetchReply() {
     //     temperature: 0
     // })
 
+    console.log(conversationArr)
+
     const url = 'https://cosmic-klepon-bad845.netlify.app/.netlify/functions/fetchAI'
     const response = await fetch(url, {
         method: 'POST',
