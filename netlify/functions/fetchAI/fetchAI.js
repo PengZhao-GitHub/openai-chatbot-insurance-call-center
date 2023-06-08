@@ -2,11 +2,11 @@
 const handler = async (event) => {
 
   try {
-    const subject = event.queryStringParameters.name || 'World'
+    //const subject = event.queryStringParameters.name || 'World'
     const requestBody = JSON.parse(event.body);
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: `Hello ${subject}` }),
+      body: JSON.stringify({ message: `${requestBody}` }),
     }
   } catch (error) {
     return { statusCode: 500, body: error.toString() }
