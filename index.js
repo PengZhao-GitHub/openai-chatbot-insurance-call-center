@@ -41,8 +41,6 @@ async function fetchReply() {
         body: JSON.stringify(conversationArr),
     })
 
-    console.log(response)
-
     const data = await response.json() // the response.json() method is used to parse the response body as JSON. 
     console.log(data)
 
