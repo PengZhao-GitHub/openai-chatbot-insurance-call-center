@@ -8,9 +8,7 @@ const handler = async (event) => {
     const requestBody = JSON.parse(event.body);
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        reply: requestBody
-      })
+      body: {"hello": "Peng"}
     }
   } catch (error) {
     return { statusCode: 500, body: error.toString() }
