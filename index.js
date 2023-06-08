@@ -30,14 +30,6 @@ document.addEventListener('submit', (e) => {
 
 async function fetchReply() {
 
-    // const response = await openai.createChatCompletion({
-    //     model: 'gpt-3.5-turbo',
-    //     messages: conversationArr,
-    //     presence_penalty: 0, 
-    //     frequency_penalty: 0.3,
-    //     temperature: 0
-    // })
-
     console.log(conversationArr)
 
     const url = 'https://cosmic-klepon-bad845.netlify.app/.netlify/functions/fetchAI'
@@ -51,21 +43,11 @@ async function fetchReply() {
 
     console.log(response)
 
-    const data = await response.json()
+    const data = await response.json() // the response.json() method is used to parse the response body as JSON. 
     console.log(data)
 
     renderTypewriterText(data.content)
     conversationArr.push(data)  
-
-
-
-    //console.log(JSON.parse(data.message))
-
-    // Add the AI response to DOM
-    //renderTypewriterText(response.data.choices[0].message.content)
-
-    // Add the AI response to converation array
-    //conversationArr.push(response.data.choices[0].message)  
 
 }
 
