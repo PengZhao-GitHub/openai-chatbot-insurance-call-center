@@ -53,6 +53,7 @@ main {
 .logo {
     grid-area: logo;
     width: 45px;
+    border-radius: .3em;
 }
 
 .supportId {
