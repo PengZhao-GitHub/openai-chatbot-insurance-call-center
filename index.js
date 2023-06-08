@@ -44,9 +44,9 @@ async function fetchReply() {
     const response = await fetch(url, {
         method: 'POST',
         headers: {
-            'content-type': 'text/plain',
+            'content-type': 'application/json',
         },
-        body: conversationArr
+        body: JSON.stringify(conversationArr),
     })
 
     console.log(response)
