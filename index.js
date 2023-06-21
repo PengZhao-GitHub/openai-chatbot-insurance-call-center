@@ -7,7 +7,7 @@ const conversationArr = []
 saveButton.addEventListener('click', e => {
     e.preventDefault()
 
-    console.log("Save the conversation as: ", conversationArr.slice(1))
+    console.log("Save the conversation as: ", conversationArr)
 
 })
 
