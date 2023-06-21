@@ -36,7 +36,7 @@ async function fetchReply() {
     })
 
     const data = await response.json() // the response.json() method is used to parse the response body as JSON. 
-    console.log(data)
+    console.log("AI response:", data)
 
     renderTypewriterText(data.content)
     conversationArr.push(data)  
