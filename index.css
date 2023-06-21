@@ -57,9 +57,16 @@ main {
 }
 
 .supportId {
-    font-size: 10px;
     grid-area: supportId;
     text-align: center;
+
+    height: 20px;
+    padding: 0;
+    width: 80%;
+    color: var(--medium-light-text);
+    font-size: 12px;
+    margin: 0 auto; 
+
 }
 
 .clear-btn {
@@ -72,7 +79,7 @@ main {
     margin: 0 auto; 
 }
 
-.clear-btn:hover {
+.supportId:hover, .clear-btn:hover {
     border: 1px solid #24976f;
     color: #24976f;
     cursor: pointer;

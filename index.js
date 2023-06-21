@@ -1,6 +1,22 @@
 const chatbotConversation = document.getElementById('chatbot-conversation')
+const clearButton = document.getElementById('clear-btn')
+const saveButton = document.getElementById('save-btn')
 
 const conversationArr = []
+
+saveButton.addEventListener('click', e => {
+    e.preventDefault()
+
+    console.log("Save the conversation as: ", conversationArr.slice(1))
+
+})
+
+clearButton.addEventListener('click', e => {
+    e.preventDefault()
+    conversationArr.splice(1)
+    chatbotConversation.innerHTML = '<div class="speech speech-ai">How can I help you?</div>'
+
+})
 
 document.addEventListener('submit', async (e) => {
     e.preventDefault()
