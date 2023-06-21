@@ -6,7 +6,7 @@ document.addEventListener('submit', (e) => {
     e.preventDefault()
     const userInput = document.getElementById('user-input')
 
-    userInputObj = {
+    const userInputObj = {
         role: 'user',
         content: userInput.value
     }
