@@ -2,7 +2,7 @@ const chatbotConversation = document.getElementById('chatbot-conversation')
 
 const conversationArr = []
 
-document.addEventListener('submit', (e) => {
+document.addEventListener('submit', async (e) => {
     e.preventDefault()
     const userInput = document.getElementById('user-input')
 
@@ -15,19 +15,22 @@ document.addEventListener('submit', (e) => {
 
     console.log("User input:", userInputObj)
 
-    fetchReply()
-
     const newSpeechBubble = document.createElement('div')
     newSpeechBubble.classList.add('speech', 'speech-human')
     chatbotConversation.appendChild(newSpeechBubble)
     newSpeechBubble.textContent = userInput.value
     userInput.value = ''
     chatbotConversation.scrollTop = chatbotConversation.scrollHeight
+
+    const aiResponse = await fetchReply()
+    console.log("AI response:", aiResponse)
+
+    renderTypewriterText(aiResponse.content)
+    conversationArr.push(aiResponse)  
+
 })
 
 async function fetchReply() {
-
-    
 
     const url = 'https://cosmic-klepon-bad845.netlify.app/.netlify/functions/fetchAI'
     const response = await fetch(url, {
@@ -39,10 +42,12 @@ async function fetchReply() {
     })
 
     const data = await response.json() // the response.json() method is used to parse the response body as JSON. 
-    console.log("AI response:", data)
+    
 
-    renderTypewriterText(data.content)
-    conversationArr.push(data)  
+    return data
+
+    // renderTypewriterText(data.content)
+    // conversationArr.push(data)  
 
 }
 
