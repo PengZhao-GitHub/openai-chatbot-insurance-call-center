@@ -5,12 +5,15 @@ const conversationArr = []
 document.addEventListener('submit', (e) => {
     e.preventDefault()
     const userInput = document.getElementById('user-input')
-    
-    conversationArr.push({
+
+    userInputObj = {
         role: 'user',
         content: userInput.value
-    })
+    }
+    
+    conversationArr.push(userInputObj)
 
+    console.log("User input:", userInputObj)
 
     fetchReply()
 
@@ -24,7 +27,7 @@ document.addEventListener('submit', (e) => {
 
 async function fetchReply() {
 
-    console.log(conversationArr)
+    
 
     const url = 'https://cosmic-klepon-bad845.netlify.app/.netlify/functions/fetchAI'
     const response = await fetch(url, {
