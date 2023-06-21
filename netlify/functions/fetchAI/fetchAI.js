@@ -9,8 +9,12 @@ const openai = new OpenAIApi(configuration)
 
 const handler = async (event) => {
 
+  console.log(event.body)
+  
   try {
     const conversationArr = JSON.parse(event.body);
+
+
 
     const response = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',
