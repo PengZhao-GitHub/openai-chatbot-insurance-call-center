@@ -26,7 +26,7 @@ document.addEventListener('submit', async (e) => {
         role: 'user',
         content: userInput.value
     }
-    
+
     conversationArr.push(userInputObj)
 
     console.log("User input:", userInputObj)
@@ -39,10 +39,16 @@ document.addEventListener('submit', async (e) => {
     chatbotConversation.scrollTop = chatbotConversation.scrollHeight
 
     const aiResponse = await fetchReply()
-    console.log("AI response:", aiResponse)
 
-    renderTypewriterText(aiResponse.content)
-    conversationArr.push(aiResponse)  
+    if (aiResponse.statusCode === 200) {
+        console.log("AI response:", aiResponse)
+
+        renderTypewriterText(aiResponse.content)
+        conversationArr.push(aiResponse)
+    } else {
+        console.log(aiResponse)
+    }
+
 
 })
 
@@ -58,7 +64,7 @@ async function fetchReply() {
     })
 
     const data = await response.json() // the response.json() method is used to parse the response body as JSON. 
-    
+
 
     return data
 
@@ -74,7 +80,7 @@ function renderTypewriterText(text) {
     chatbotConversation.appendChild(newSpeechBubble)
     let i = 0
     const interval = setInterval(() => {
-        newSpeechBubble.textContent += text.slice(i-1, i)
+        newSpeechBubble.textContent += text.slice(i - 1, i)
         if (text.length === i) {
             clearInterval(interval)
             newSpeechBubble.classList.remove('blinking-cursor')
