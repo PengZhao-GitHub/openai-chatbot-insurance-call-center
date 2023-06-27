@@ -38,16 +38,16 @@ document.addEventListener('submit', async (e) => {
     userInput.value = ''
     chatbotConversation.scrollTop = chatbotConversation.scrollHeight
 
-    const aiResponse = await fetchReply()
-
-    if (aiResponse.statusCode === 200) {
+    try {
+        const aiResponse = await fetchReply()
         console.log("AI response:", aiResponse)
 
         renderTypewriterText(aiResponse.content)
         conversationArr.push(aiResponse)
-    } else {
-        console.log(aiResponse)
+    } catch(err) {
+        console.log(err)
     }
+    
 
 
 })
