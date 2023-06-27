@@ -9,7 +9,7 @@ const openai = new OpenAIApi(configuration)
 
 const handler = async (event) => {
 
-  console.log(event.body)
+  //console.log(event.body)
 
   const instructionObj = {
     role: 'system',   
@@ -38,5 +38,7 @@ const handler = async (event) => {
     return { statusCode: 500, body: error.toString() }
   }
 }
+
+
 
 module.exports = { handler }
