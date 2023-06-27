@@ -38,17 +38,12 @@ document.addEventListener('submit', async (e) => {
     userInput.value = ''
     chatbotConversation.scrollTop = chatbotConversation.scrollHeight
 
-    try {
-        const aiResponse = await fetchReply()
-        console.log("AI response:", aiResponse)
 
-        renderTypewriterText(aiResponse.content)
-        conversationArr.push(aiResponse)
-    } catch(err) {
-        console.log(err)
-    }
-    
+    const aiResponse = await fetchReply()
+    console.log("AI response:", aiResponse)
 
+    renderTypewriterText(aiResponse.content)
+    conversationArr.push(aiResponse)
 
 })
 
@@ -63,6 +58,7 @@ async function fetchReply() {
         body: JSON.stringify(conversationArr),
     })
 
+    console.log("resonse:", response)
     const data = await response.json() // the response.json() method is used to parse the response body as JSON. 
 
 
