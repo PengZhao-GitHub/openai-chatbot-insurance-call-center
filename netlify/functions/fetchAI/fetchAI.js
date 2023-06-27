@@ -9,7 +9,7 @@ const openai = new OpenAIApi(configuration)
 
 const handler = async (event) => {
 
-  //console.log(event.body)
+  console.log(event.body)
 
   const instructionObj = {
     role: 'system',   
