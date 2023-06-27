@@ -9,6 +9,8 @@ const openai = new OpenAIApi(configuration)
 
 const handler = async (event) => {
 
+  let returnObj = {}
+
   console.log(event.body)
 
   const instructionObj = {
@@ -30,13 +32,18 @@ const handler = async (event) => {
       temperature: 0
     })
 
-    return {
+    returnObj = {
       statusCode: 200,
       body: JSON.stringify(response.data.choices[0].message),
     }
+
   } catch (error) {
-    return { statusCode: 500, body: error.toString() }
+    returnObj = { statusCode: 500, body: error.toString() }
   }
+
+  console.log(returnObj)
+  return returnObj
+
 }
 
 
