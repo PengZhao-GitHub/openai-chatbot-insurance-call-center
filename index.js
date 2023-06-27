@@ -65,7 +65,7 @@ async function fetchReply() {
         const data = await response.json() // the response.json() method is used to parse the response body as JSON. 
         return data
     } else {
-        return {role: "server", content: response.body.toString() }
+        return {role: "server", content: `Server error code: ${response.status}` }
     }
 
     
