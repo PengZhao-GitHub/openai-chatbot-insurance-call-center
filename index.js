@@ -61,8 +61,13 @@ async function fetchReply() {
     console.log("resonse:", response)
     const data = await response.json() // the response.json() method is used to parse the response body as JSON. 
 
+    if (response.status === 200) {
+        return data
+    } else {
+        return {role: "server", content: JSON.stringify(data) }
+    }
 
-    return data
+    
 
     // renderTypewriterText(data.content)
     // conversationArr.push(data)  
